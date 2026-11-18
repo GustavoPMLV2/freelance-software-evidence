@@ -36,7 +36,7 @@ A scored pipeline is compared with exact-token lexical retrieval on 44 labeled q
 | Recall at 3 | 0.8636 | 1.0000 |
 | MRR at 3 | 0.7841 | 1.0000 |
 
-Fifteen retrieval tests cover the unchanged 44-query fixture, 22 additional development questions, ranking regressions, access controls, result limits, exact excerpts and reproducibility. The revised pipeline scores 44/44 on the original fixture and 22/22 on the additional development set. The latter is not a blind holdout. The authored fixture is not a held-out real-world evaluation. No LLM inference, embeddings or paid service runs. [Case and verified evaluation](portfolio/CASE_EVIDENCESEARCH.md) · [All query outcomes](evidence/results.json).
+Fifteen retrieval tests cover the unchanged 44-query fixture, 22 additional development questions, ranking regressions, access controls, result limits, exact excerpts and reproducibility. The revised pipeline scores 44/44 on the original fixture and 22/22 on the additional development set, which is not a blind holdout. The exact-token baseline also scores 22/22 on that set, so it does not separate the two pipelines. The authored fixture is not a held-out real-world evaluation. No LLM inference, embeddings or paid service runs. [Case and verified evaluation](portfolio/CASE_EVIDENCESEARCH.md) · [All query outcomes](evidence/results.json).
 
 ## Reproduce
 

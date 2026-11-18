@@ -12,7 +12,7 @@ Independent engineering demonstration using synthetic policies and questions. Up
 
 All **44 original questions now return the expected first source**. The previous version scored 42/44; both previously incorrect first-source choices are corrected. The 24 original documents, 44 queries and expected-source labels remain unchanged. The corpus digest is `a59178860cbbed932978b83490cc7371b35d987dd44fc04c81d5b96d81eab46f`.
 
-A separate set of **22 additional synthetic development questions** also scores **22/22**. These questions were used during development, so they are not a blind holdout or an independent production benchmark.
+A separate set of **22 additional synthetic development questions** also scores **22/22**. These questions were used during development, so they are not a blind holdout or an independent production benchmark. The exact-token baseline also scores 22/22 on this set, so it does not separate the two pipelines.
 
 ## What changed and why
 
