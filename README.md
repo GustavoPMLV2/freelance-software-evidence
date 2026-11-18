@@ -59,6 +59,10 @@ python3 -m http.server 8766 --directory portfolio
 
 Open `http://localhost:8766` or `http://localhost:8766/pt.html` or `http://localhost:8766/es.html`. The brief builder prepares text locally and submits nothing.
 
+## License
+
+The source code and tests in `technical/`, `b2b/site/*.js`, `b2b/tests/` and `.github/` are released under the [MIT License](LICENSE). The written case studies, portfolio pages, images and the EngramaMed and Gustavo Lima Verde names and logos are not covered by that license; all rights reserved.
+
 ## Português
 
 Portfólio técnico de Gustavo Lima Verde com demonstrações reproduzíveis de proteção contra efeitos duplicados em webhooks e avaliação de busca documental. Dados sintéticos, resultados de testes executados e limites declarados. EngramaMed aparece primeiro como SaaS educacional próprio. A implementação utiliza apoio de IA, comunicação escrita e escopo combinado antes de cada trabalho.
