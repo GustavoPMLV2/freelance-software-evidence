@@ -1,6 +1,6 @@
-import concurrent.futures,json,tempfile,unittest,gc
+import concurrent.futures,json,tempfile,threading,time,unittest,gc
 from pathlib import Path
-from replaysafe import Inbox,SyntheticProvider,Conflict
+from replaysafe import Inbox,SyntheticProvider,Conflict,RetryLater
 
 class Reliability(unittest.TestCase):
     def setUp(self):
@@ -13,7 +13,7 @@ class Reliability(unittest.TestCase):
         with self.assertRaises(Conflict):self.box.receive({'id':'a','amount':121})
         self.assertEqual(self.box.counts()['effects'],1)
     def test_invalid_payload_has_no_effect(self):
-        for e in [{'id':'a','amount':True},{'id':'a','amount':-1},{'id':'a','amount':1,'unexpected':'x'},{'id':'','amount':1}]:
+        for e in [{'id':'a','amount':True},{'id':'a','amount':-1},{'id':'a','amount':2**63},{'id':'a','amount':1,'unexpected':'x'},{'id':'','amount':1}]:
             with self.assertRaises(ValueError):self.box.receive(e)
         self.assertEqual(self.box.counts()['events'],0)
     def test_rollback_before_commit(self):
@@ -52,6 +52,42 @@ class Reliability(unittest.TestCase):
         fresh=Inbox(self.path);fresh.dispatch(SyntheticProvider(self.path))
         self.assertEqual(fresh.counts()['dead'],1)
         self.assertEqual(fresh.counts()['sent'],0)
+    def test_overlapping_dispatchers_send_each_event_once(self):
+        for i in range(60):self.box.receive({'id':f'e{i:02}','amount':i})
+        calls=[];lock=threading.Lock();start=threading.Barrier(4)
+        class Counting(SyntheticProvider):
+            def send(self,key,payload):
+                with lock:calls.append(key)
+                super().send(key,payload)
+        provider=Counting(self.path)
+        def run():
+            start.wait();Inbox(self.path).dispatch(provider)
+        workers=[threading.Thread(target=run) for _ in range(4)]
+        for w in workers:w.start()
+        for w in workers:w.join()
+        self.assertEqual(len(calls),60,'Each event must reach the provider once, not once per dispatcher')
+        self.assertEqual(self.box.counts()['sent'],60)
+        self.assertEqual(self.box.counts()['pending'],0)
+    def test_late_failure_cannot_reopen_a_delivered_event(self):
+        self.box.receive({'id':'a','amount':1});path=self.path
+        class LateTimeout(SyntheticProvider):
+            def send(self,key,payload):
+                # The lease of this attempt has expired; another dispatcher delivers meanwhile.
+                Inbox(path).dispatch(SyntheticProvider(path))
+                raise RetryLater('timeout reported after the other delivery')
+        self.box.dispatch(LateTimeout(path),lease_seconds=0)
+        counts=self.box.counts()
+        self.assertEqual(counts['sent'],1);self.assertEqual(counts['pending'],0);self.assertEqual(counts['dead'],0)
+    def test_interrupted_send_is_retried_after_its_lease_expires(self):
+        self.box.receive({'id':'a','amount':1})
+        class Crash(BaseException):pass
+        class Crashing(SyntheticProvider):
+            def send(self,key,payload):raise Crash('process stopped during send')
+        with self.assertRaises(Crash):self.box.dispatch(Crashing(self.path),lease_seconds=0.5)
+        restarted=Inbox(self.path);restarted.dispatch(SyntheticProvider(self.path))
+        self.assertEqual(restarted.counts()['sent'],0,'The interrupted claim is still leased')
+        time.sleep(0.6);restarted.dispatch(SyntheticProvider(self.path))
+        self.assertEqual(restarted.counts()['sent'],1);self.assertEqual(restarted.counts()['pending'],0)
     @unittest.skipUnless(Path('/proc/self/fd').is_dir(),'Requires Linux procfs')
     def test_connections_do_not_accumulate_without_garbage_collection(self):
         gc.collect();before=len(list(Path('/proc/self/fd').iterdir()))

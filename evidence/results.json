@@ -1,8 +1,8 @@
 {
   "schema": 2,
-  "created": "2026-10-03",
+  "created": "2026-11-18",
   "demo_label": "Independent demonstrations / synthetic data",
-  "tests_passed": 28,
+  "tests_passed": 31,
   "tests_skipped": [],
   "verified_environment": {
     "os": "Linux",
@@ -19,7 +19,7 @@
     "synthetic_transient_failures": 25,
     "lost_acknowledgements": 25,
     "parallel_receivers": 8,
-    "tests": 13,
+    "tests": 16,
     "scope": "Synthetic SQLite fixture; single dispatcher; downstream supports idempotency keys; not a production throughput benchmark"
   },
   "retrieval": {

@@ -22,7 +22,7 @@ The search function does not read expected answers or route queries through an a
 
 ## Executed verification
 
-**15 retrieval tests** cover all 44 original cases, the 22 additional phrases, reproduction of both ranking defects, topical titles versus incidental mentions, result-limit validation, tenant/role boundaries in both pipelines, unsupported-query abstention, exact excerpts, reproducibility and ordering. The full suite has **28 passing tests and no skipped tests** in the recorded Linux/Python environment.
+**15 retrieval tests** cover all 44 original cases, the 22 additional phrases, reproduction of both ranking defects, topical titles versus incidental mentions, result-limit validation, tenant/role boundaries in both pipelines, unsupported-query abstention, exact excerpts, reproducibility and ordering. The full suite has **31 passing tests and no skipped tests** in the recorded Linux/Python environment.
 
 ## Scope and reproduction
 

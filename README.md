@@ -20,9 +20,9 @@ A durable SQLite inbox/outbox handles event identity, concurrent duplicates, tra
 | Concurrent receivers | 8 |
 | Unprotected / protected extra effects | 2,100 / 0 |
 | Transient failures / lost acknowledgements | 25 / 25 |
-| Regression checks | 13 |
+| Regression checks | 16 |
 
-The downstream provider supports idempotency keys. One dispatcher is used. This fixture does not establish production throughput or a universal exactly-once guarantee. [Case and limits](portfolio/CASE_REPLAYSAFE.md) · [Implementation](technical/replaysafe.py).
+The downstream provider supports idempotency keys. The fixture uses one dispatcher; regression tests also cover overlapping dispatchers, which claim each outbox row with a time-bounded lease. A send that outlives its lease can be repeated, so the idempotency key remains required. This fixture does not establish production throughput or a universal exactly-once guarantee. [Case and limits](portfolio/CASE_REPLAYSAFE.md) · [Implementation](technical/replaysafe.py).
 
 ## EvidenceSearch · measure document retrieval
 
@@ -48,7 +48,7 @@ cd freelance-software-evidence/technical
 python3 run_evidence.py
 ```
 
-This executes 28 regression tests and regenerates the synthetic results. Source hashes bind the evidence to the implementation. No live APIs, customer records or financial transactions are used.
+This executes 31 regression tests and regenerates the synthetic results. Source hashes bind the evidence to the implementation. No live APIs, customer records or financial transactions are used.
 
 To view the standalone English, Portuguese and Spanish portfolio:
 
