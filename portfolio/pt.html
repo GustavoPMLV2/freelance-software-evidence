@@ -82,7 +82,7 @@
           <div class="k-rep"><dt>Repetições sem novo efeito</dt><dd id="heroRepeats">2.100</dd></div>
         </dl>
         <p class="zero"><b id="heroDuplicates">0</b><span>efeitos duplicados com proteção, no mesmo conjunto de teste</span></p>
-        <figcaption class="plate-foot">Fonte: <a href="results.json?v=49030828a450">results.json</a> e <a href="CASE_REPLAYSAFE.md?v=af2b72afe1db">CASE_REPLAYSAFE.md</a>. 13 verificações passaram. SQLite, um despachante, destino com chave de idempotência. Demonstração própria; sem alegação de uso em produção.</figcaption>
+        <figcaption class="plate-foot">Fonte: <a href="results.json?v=da12f56bbc2a">results.json</a> e <a href="CASE_REPLAYSAFE.md?v=12d86d750222">CASE_REPLAYSAFE.md</a>. 16 verificações passaram. SQLite, um despachante, destino com chave de idempotência. Demonstração própria; sem alegação de uso em produção.</figcaption>
       </figure>
     </div>
   </div>
@@ -234,9 +234,9 @@
           <div><dt>Receptores</dt><dd>8</dd></div>
           <div><dt>Falhas transitórias</dt><dd>25</dd></div>
           <div><dt>Confirmações perdidas</dt><dd>25</dd></div>
-          <div><dt>Verificações</dt><dd>13 passaram</dd></div>
+          <div><dt>Verificações</dt><dd>16 passaram</dd></div>
         </dl>
-        <a class="ex-link" href="CASE_REPLAYSAFE.md?v=af2b72afe1db">Ler caso e limites <span aria-hidden="true">↗</span></a>
+        <a class="ex-link" href="CASE_REPLAYSAFE.md?v=12d86d750222">Ler caso e limites <span aria-hidden="true">↗</span></a>
       </div>
       <div class="ex-body">
         <p class="checks">Teste de repetição executado</p>
@@ -275,7 +275,7 @@ Efeitos duplicados com proteção: 0</div>
             <div><dt>Erros na primeira fonte</dt><dd>0</dd></div>
             <div><dt>Verificações</dt><dd>15 passaram</dd></div>
           </dl>
-          <a class="ex-link" href="CASE_EVIDENCESEARCH.md?v=ccb0a09e7c03">Ler avaliação e método <span aria-hidden="true">↗</span></a>
+          <a class="ex-link" href="CASE_EVIDENCESEARCH.md?v=da04db9d65e0">Ler avaliação e método <span aria-hidden="true">↗</span></a>
         </div>
         <div class="score">
           <div class="score-item before"><span>Versão inicial: primeira fonte correta</span><b id="baselineTop">31/44</b></div>
@@ -304,7 +304,7 @@ Efeitos duplicados com proteção: 0</div>
         </div>
       </div>
       </details>
-      <p class="limit">Mais 22 perguntas sintéticas de desenvolvimento passaram. Não são uma avaliação cega em dados reais.</p>
+      <p class="limit">Mais 22 perguntas sintéticas de desenvolvimento passaram. A versão de referência por palavras exatas também acerta as 22, então elas não diferenciam as versões. Não são uma avaliação cega em dados reais.</p>
       <p class="limit">Conjunto sintético elaborado manualmente. Busca lexical comparada com normalização de termos, pontuação por campos e prioridade do assunto no título. Sem inferência de LLM ou embeddings. Resultados restritos a este conjunto.</p>
     </article>
 
@@ -312,10 +312,10 @@ Efeitos duplicados com proteção: 0</div>
 
     <div class="dossier-files">
       <div class="dossier-head"><h3>Arquivos para conferir</h3><p>Os mesmos arquivos que geram os números acima.</p></div>
-      <a class="file file-primary" href="reproducible-demos.zip?v=a0fd87bc75e1" download><span class="file-ext">ZIP</span><span class="file-desc">Baixar código, testes e evidências</span><span class="file-name">reproducible-demos.zip · 27 kB</span><span class="arr" aria-hidden="true">↓</span></a>
-      <a class="file" href="results.json?v=49030828a450"><span class="file-ext">JSON</span><span class="file-desc">Examinar os resultados das 44 perguntas</span><span class="file-name">results.json · 72 kB</span><span class="arr" aria-hidden="true">↗</span></a>
-      <a class="file" href="CASE_REPLAYSAFE.md?v=af2b72afe1db"><span class="file-ext">MD</span><span class="file-desc">ReplaySafe: caso e limites</span><span class="file-name">CASE_REPLAYSAFE.md</span><span class="arr" aria-hidden="true">↗</span></a>
-      <a class="file" href="CASE_EVIDENCESEARCH.md?v=ccb0a09e7c03"><span class="file-ext">MD</span><span class="file-desc">EvidenceSearch: avaliação e erros residuais</span><span class="file-name">CASE_EVIDENCESEARCH.md</span><span class="arr" aria-hidden="true">↗</span></a>
+      <a class="file file-primary" href="reproducible-demos.zip?v=bea3e20114e1" download><span class="file-ext">ZIP</span><span class="file-desc">Baixar código, testes e evidências</span><span class="file-name">reproducible-demos.zip · 27 kB</span><span class="arr" aria-hidden="true">↓</span></a>
+      <a class="file" href="results.json?v=da12f56bbc2a"><span class="file-ext">JSON</span><span class="file-desc">Examinar os resultados das 44 perguntas</span><span class="file-name">results.json · 72 kB</span><span class="arr" aria-hidden="true">↗</span></a>
+      <a class="file" href="CASE_REPLAYSAFE.md?v=12d86d750222"><span class="file-ext">MD</span><span class="file-desc">ReplaySafe: caso e limites</span><span class="file-name">CASE_REPLAYSAFE.md</span><span class="arr" aria-hidden="true">↗</span></a>
+      <a class="file" href="CASE_EVIDENCESEARCH.md?v=da04db9d65e0"><span class="file-ext">MD</span><span class="file-desc">EvidenceSearch: avaliação e erros residuais</span><span class="file-name">CASE_EVIDENCESEARCH.md</span><span class="arr" aria-hidden="true">↗</span></a>
       <details class="zip-list">
         <summary>O que há no ZIP (13 arquivos)</summary>
         <ul>
@@ -450,7 +450,7 @@ Efeitos duplicados com proteção: 0</div>
   </div>
 </footer>
 
-<script src="portfolio-data.js?v=ff6b1b3aa4cf"></script>
+<script src="portfolio-data.js?v=a5beb4b50749"></script>
 <script src="catalog-data.pt.js?v=0b9ece44e64c"></script>
 <script src="app.js?v=fed10e0446a2"></script>
 </body>

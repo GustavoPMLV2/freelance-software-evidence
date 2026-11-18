@@ -82,7 +82,7 @@
           <div class="k-rep"><dt>Repeticiones sin nuevo efecto</dt><dd id="heroRepeats">2,100</dd></div>
         </dl>
         <p class="zero"><b id="heroDuplicates">0</b><span>efectos duplicados con protección, en el mismo conjunto de prueba</span></p>
-        <figcaption class="plate-foot">Fuente: <a href="results.json?v=49030828a450">results.json</a> y <a href="CASE_REPLAYSAFE.md?v=af2b72afe1db">CASE_REPLAYSAFE.md</a>. 13 verificaciones superadas. SQLite, un único despachador, el destino admite claves de idempotencia. Demostración independiente; no se afirma uso en producción de ningún cliente.</figcaption>
+        <figcaption class="plate-foot">Fuente: <a href="results.json?v=da12f56bbc2a">results.json</a> y <a href="CASE_REPLAYSAFE.md?v=12d86d750222">CASE_REPLAYSAFE.md</a>. 16 verificaciones superadas. SQLite, un único despachador, el destino admite claves de idempotencia. Demostración independiente; no se afirma uso en producción de ningún cliente.</figcaption>
       </figure>
     </div>
   </div>
@@ -234,9 +234,9 @@
           <div><dt>Hilos receptores</dt><dd>8</dd></div>
           <div><dt>Fallos transitorios</dt><dd>25</dd></div>
           <div><dt>Acuses de recibo perdidos</dt><dd>25</dd></div>
-          <div><dt>Verificaciones</dt><dd>13 superadas</dd></div>
+          <div><dt>Verificaciones</dt><dd>16 superadas</dd></div>
         </dl>
-        <a class="ex-link" href="CASE_REPLAYSAFE.md?v=af2b72afe1db">Leer el caso y sus limitaciones <span aria-hidden="true">↗</span></a>
+        <a class="ex-link" href="CASE_REPLAYSAFE.md?v=12d86d750222">Leer el caso y sus limitaciones <span aria-hidden="true">↗</span></a>
       </div>
       <div class="ex-body">
         <p class="checks">Prueba de repetición ejecutada</p>
@@ -275,7 +275,7 @@ Efectos duplicados con protección: 0</div>
             <div><dt>Errores en la primera fuente</dt><dd>0</dd></div>
             <div><dt>Verificaciones</dt><dd>15 superadas</dd></div>
           </dl>
-          <a class="ex-link" href="CASE_EVIDENCESEARCH.md?v=ccb0a09e7c03">Leer la evaluación y el método <span aria-hidden="true">↗</span></a>
+          <a class="ex-link" href="CASE_EVIDENCESEARCH.md?v=da04db9d65e0">Leer la evaluación y el método <span aria-hidden="true">↗</span></a>
         </div>
         <div class="score">
           <div class="score-item before"><span>Versión base: primera fuente correcta</span><b id="baselineTop">31/44</b></div>
@@ -304,7 +304,7 @@ Efectos duplicados con protección: 0</div>
         </div>
       </div>
       </details>
-      <p class="limit">También se aprobaron 22 preguntas sintéticas de desarrollo. No constituyen una evaluación ciega con datos reales.</p>
+      <p class="limit">También se aprobaron 22 preguntas sintéticas de desarrollo. La versión de referencia por palabras exactas también acierta las 22, así que no distinguen entre las versiones. No constituyen una evaluación ciega con datos reales.</p>
       <p class="limit">Conjunto sintético elaborado manualmente. Línea base léxica exacta frente a normalización de términos, puntuación por campos y prioridad del tema en el título. Sin inferencia de LLM ni embeddings. Los resultados no demuestran generalización a corpus reales. Las preguntas y los fragmentos se muestran en inglés, tal como figuran en el corpus de evaluación original.</p>
     </article>
 
@@ -312,10 +312,10 @@ Efectos duplicados con protección: 0</div>
 
     <div class="dossier-files">
       <div class="dossier-head"><h3>Archivos que puede verificar</h3><p>Los mismos archivos que generan las cifras anteriores. Documentación técnica en inglés.</p></div>
-      <a class="file file-primary" href="reproducible-demos.zip?v=a0fd87bc75e1" download><span class="file-ext">ZIP</span><span class="file-desc">Descargar código, pruebas y evidencias</span><span class="file-name">reproducible-demos.zip · 27 kB</span><span class="arr" aria-hidden="true">↓</span></a>
-      <a class="file" href="results.json?v=49030828a450"><span class="file-ext">JSON</span><span class="file-desc">Examinar los resultados de las 44 consultas</span><span class="file-name">results.json · 72 kB</span><span class="arr" aria-hidden="true">↗</span></a>
-      <a class="file" href="CASE_REPLAYSAFE.md?v=af2b72afe1db"><span class="file-ext">MD</span><span class="file-desc">ReplaySafe: caso y limitaciones</span><span class="file-name">CASE_REPLAYSAFE.md</span><span class="arr" aria-hidden="true">↗</span></a>
-      <a class="file" href="CASE_EVIDENCESEARCH.md?v=ccb0a09e7c03"><span class="file-ext">MD</span><span class="file-desc">EvidenceSearch: evaluación y errores residuales</span><span class="file-name">CASE_EVIDENCESEARCH.md</span><span class="arr" aria-hidden="true">↗</span></a>
+      <a class="file file-primary" href="reproducible-demos.zip?v=bea3e20114e1" download><span class="file-ext">ZIP</span><span class="file-desc">Descargar código, pruebas y evidencias</span><span class="file-name">reproducible-demos.zip · 27 kB</span><span class="arr" aria-hidden="true">↓</span></a>
+      <a class="file" href="results.json?v=da12f56bbc2a"><span class="file-ext">JSON</span><span class="file-desc">Examinar los resultados de las 44 consultas</span><span class="file-name">results.json · 72 kB</span><span class="arr" aria-hidden="true">↗</span></a>
+      <a class="file" href="CASE_REPLAYSAFE.md?v=12d86d750222"><span class="file-ext">MD</span><span class="file-desc">ReplaySafe: caso y limitaciones</span><span class="file-name">CASE_REPLAYSAFE.md</span><span class="arr" aria-hidden="true">↗</span></a>
+      <a class="file" href="CASE_EVIDENCESEARCH.md?v=da04db9d65e0"><span class="file-ext">MD</span><span class="file-desc">EvidenceSearch: evaluación y errores residuales</span><span class="file-name">CASE_EVIDENCESEARCH.md</span><span class="arr" aria-hidden="true">↗</span></a>
       <details class="zip-list">
         <summary>Contenido del ZIP (13 archivos)</summary>
         <ul>
@@ -450,7 +450,7 @@ Efectos duplicados con protección: 0</div>
   </div>
 </footer>
 
-<script src="portfolio-data.js?v=ff6b1b3aa4cf"></script>
+<script src="portfolio-data.js?v=a5beb4b50749"></script>
 <script src="catalog-data.es.js?v=69845f5e7d33"></script>
 <script src="app.js?v=fed10e0446a2"></script>
 </body>
